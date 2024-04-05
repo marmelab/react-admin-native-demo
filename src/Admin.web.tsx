@@ -1,5 +1,10 @@
-import { CommonAdmin } from "./CommonAdmin";
+import { BrowserRouter } from "react-router-dom";
+import { Admin } from "./CommonAdmin";
 
-export const Admin = () => {
-  return <CommonAdmin />;
-};
+export default function BrowserAdmin() {
+  return (
+    <BrowserRouter>
+      <Admin />
+    </BrowserRouter>
+  );
+}

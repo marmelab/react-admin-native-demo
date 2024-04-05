@@ -1,10 +1,10 @@
 import { NativeRouter } from "react-router-native";
-import { CommonAdmin } from "./CommonAdmin";
+import { Admin } from "./CommonAdmin";
 
-export const Admin = () => {
+export default function NativeAdmin() {
   return (
     <NativeRouter>
-      <CommonAdmin />
+      <Admin />
     </NativeRouter>
   );
-};
+}
