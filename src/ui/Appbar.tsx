@@ -4,6 +4,7 @@ import {
   useDefaultTitle,
   useGetResourceLabel,
   useResourceDefinitions,
+  useTranslate,
 } from "ra-core";
 import { useState } from "react";
 
@@ -11,12 +12,12 @@ export const Appbar = () => {
   const title = useDefaultTitle();
   const location = useLocation();
   const navigate = useNavigate();
+  const translate = useTranslate();
   const [visible, setVisible] = useState(false);
   const resources = useResourceDefinitions();
   const getResourceLabel = useGetResourceLabel();
   const isEditLocation = matchPath("/:page/:id", location.pathname);
   const isShowLocation = matchPath("/:page/:id/show", location.pathname);
-
 
   return (
     <PaperAppbar.Header>
@@ -34,6 +35,13 @@ export const Appbar = () => {
           />
         }
       >
+        <Menu.Item
+          onPress={() => {
+            setVisible(false);
+            navigate("/");
+          }}
+          title={translate("ra.page.dashboard")}
+        />
         {Object.keys(resources).map((resource) => (
           <Menu.Item
             key={resource}
